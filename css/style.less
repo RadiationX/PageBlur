@@ -1,0 +1,97 @@
+@border1: 1px solid rgba(255,
+255,
+255,
+0.2);
+ body,
+html {
+    margin: 0;
+    height: 100%;
+    font-family: 'roboto';
+}
+#blured {
+    display: none;
+}
+.wrap {
+    height: 100%;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    position: relative;
+    #screen {
+        background: url(../images/bg2.jpg);
+        background-size: 100% 100%;
+        float: left;
+        padding: 48px 0 64px 0;
+        width: 100%;
+        box-sizing: border-box;
+        min-height: 100%;
+        .apps {
+            text-align: center;
+            margin: 0 auto;
+            max-width: 450px;
+            padding-top: 16px;
+            .app {
+                display: inline-block;
+                width: 72px;
+                height: 72px;
+                margin: 0 16px 32px 16px;
+                box-sizing: border-box;
+                background-color: rgba(0, 255, 255, 0.2);
+                color: white;
+                line-height: 70px;
+                border-radius: 10px;
+            }
+            .big {
+                display: block;
+                margin: 0 32px 32px 32px;
+                box-sizing: border-box;
+                background-color: rgba(255, 255, 0, 0.2);
+                color: white;
+                border-radius: 50px;
+                font-size: 48px;
+            }
+        }
+    }
+    .blurbg {
+        background-attachment: fixed;
+    }
+    .blurbg.top {
+        width: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 48px;
+        text-align: center;
+        color: white;
+        line-height: 48px;
+        font-size: 28px;
+        font-weight: 300;
+        border-bottom: @border1;
+        box-sizing: border-box;
+        .setting{
+            position: absolute;
+            top:0;
+            right: 0;
+            width: 48px;
+            height: 100%;
+            border-left: @border1;
+            background-color: rgba(255,255,255,0.0);
+            background-image: url(../images/settings.png);
+            background-repeat: no-repeat;
+            background-size: 70% 70%;
+            background-position: center;
+            transition: all 1s ease; 
+        }
+        .pressed{
+                background-color: rgba(255,255,255,0.2);       
+        }
+    }
+    .blurbg.bottom {
+        width: 100%;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        transition: height 1s ease;    
+    }
+    .active {
+            height: 64px;
+        }
+}
