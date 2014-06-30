@@ -16,7 +16,7 @@ html {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
     position: relative;
     #screen {
-        background: url(../images/bg2.jpg);
+        background: rgb(164, 115, 206) url(../images/bg2.jpg);
         background-size: 100% 100%;
         float: left;
         padding: 48px 0 64px 0;
@@ -38,20 +38,107 @@ html {
                 color: white;
                 line-height: 70px;
                 border-radius: 10px;
+                box-shadow: inset 3px 3px 10px -7px white, 3px 3px 10px -7px black;
             }
             .big {
                 display: block;
                 margin: 0 32px 32px 32px;
                 box-sizing: border-box;
-                background-color: rgba(255, 255, 0, 0.2);
                 color: white;
                 border-radius: 50px;
                 font-size: 48px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                img{
+                    max-width: 100%;    
+                }
             }
         }
     }
     .blurbg {
         background-attachment: fixed;
+        .color{
+            height: 100%;
+            width: 100%;
+            background: rgba(255,0,255,0.0);
+            position: absolute;
+            top:0;
+            left: 0;
+            z-index: 1;
+        }
+        .content{
+            position: absolute;
+            width: 100%;
+            z-index: 2;
+            .block{                
+                border-bottom: @border1;
+                padding: 0 64px;
+                position: relative;
+                .slider{
+                    margin: 36px auto;
+                    height: 4px;
+                    background: rgba(0,0,0,0.5);
+                    position: relative;
+                    text-align: left;
+                    max-width: 450px;
+                    .ui-widget-header{
+                        height: 100%;
+                        width: 0%;
+                        background: rgba(255,255,255,0.8);
+                        float: left;
+                    }
+                    .ui-slider-handle{
+                        height: 12px;
+                        width: 12px;
+                        background: rgba(255,255,255,0.9);
+                        border-radius: 100%;
+                        float: left;
+                        margin: -4px 0 0 -6px;
+                        position: absolute;
+                        outline: none;
+                    }
+                    
+                }
+                #blur{
+                    &:before, &:after{
+                        content: "";
+                        position: absolute;
+                        height: 24px;
+                        width: 24px;
+                        background-image: url(../images/settingsblur.png);
+                        background-size: auto 100%;
+                        top:-10px;
+                    }
+                    &:before{
+                        left: -42px;
+                        background-position: 0 0;
+                    }
+                    &:after{
+                        right: -42px;
+                        background-position: -100% 0;
+                    }    
+                }
+                #red{
+                    background: rgba(255,0,0,0.5);    
+                }
+                #green{
+                    background: rgba(0,255,0,0.4);    
+                }
+                #blue{
+                    background: rgba(0,0,255,0.4);   
+                }
+                .value{
+                    position: absolute;
+                    width: 100%;
+                    text-align: center;
+                    left: 0;
+                    color: white;
+                    font-weight: 300;
+                    font-size: 14px;
+                    top: 9px;
+                }
+            }
+        }
     }
     .blurbg.top {
         width: 100%;
@@ -60,28 +147,34 @@ html {
         top: 0;
         height: 48px;
         text-align: center;
-        color: white;
-        line-height: 48px;
-        font-size: 28px;
-        font-weight: 300;
         border-bottom: @border1;
         box-sizing: border-box;
-        .setting{
+        .setting {
             position: absolute;
-            top:0;
+            top: 0;
             right: 0;
             width: 48px;
             height: 100%;
             border-left: @border1;
-            background-color: rgba(255,255,255,0.0);
+            background-color: rgba(255, 255, 255, 0.0);
             background-image: url(../images/settings.png);
             background-repeat: no-repeat;
             background-size: 70% 70%;
             background-position: center;
-            transition: all 1s ease; 
+            transition: all 1s ease;
         }
-        .pressed{
-                background-color: rgba(255,255,255,0.2);       
+        .head:before{
+            content: "Page Blur";
+            color: white;
+            line-height: 48px;
+            font-size: 28px;
+            font-weight: 300;    
+        }
+        .pressed {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .pressed + .head:before{
+            content: "Settings";   
         }
     }
     .blurbg.bottom {
@@ -89,9 +182,11 @@ html {
         position: fixed;
         left: 0;
         bottom: 0;
-        transition: height 1s ease;    
+        transition: height 1s ease;
+        text-align: center;
+
     }
     .active {
-            height: 64px;
-        }
+        height: 64px;
+    }
 }

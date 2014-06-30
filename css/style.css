@@ -14,7 +14,7 @@ html {
   position: relative;
 }
 .wrap #screen {
-  background: url(../images/bg2.jpg);
+  background: #a473ce url(../images/bg2.jpg);
   background-size: 100% 100%;
   float: left;
   padding: 48px 0 64px 0;
@@ -38,18 +38,103 @@ html {
   color: white;
   line-height: 70px;
   border-radius: 10px;
+  box-shadow: inset 3px 3px 10px -7px #ffffff, 3px 3px 10px -7px #000000;
 }
 .wrap #screen .apps .big {
   display: block;
   margin: 0 32px 32px 32px;
   box-sizing: border-box;
-  background-color: rgba(255, 255, 0, 0.2);
   color: white;
   border-radius: 50px;
   font-size: 48px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wrap #screen .apps .big img {
+  max-width: 100%;
 }
 .wrap .blurbg {
   background-attachment: fixed;
+}
+.wrap .blurbg .color {
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 0, 255, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.wrap .blurbg .content {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+.wrap .blurbg .content .block {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0 64px;
+  position: relative;
+}
+.wrap .blurbg .content .block .slider {
+  margin: 36px auto;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.5);
+  position: relative;
+  text-align: left;
+  max-width: 450px;
+}
+.wrap .blurbg .content .block .slider .ui-widget-header {
+  height: 100%;
+  width: 0%;
+  background: rgba(255, 255, 255, 0.8);
+  float: left;
+}
+.wrap .blurbg .content .block .slider .ui-slider-handle {
+  height: 12px;
+  width: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 100%;
+  float: left;
+  margin: -4px 0 0 -6px;
+  position: absolute;
+  outline: none;
+}
+.wrap .blurbg .content .block #blur:before,
+.wrap .blurbg .content .block #blur:after {
+  content: "";
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  background-image: url(../images/settingsblur.png);
+  background-size: auto 100%;
+  top: -10px;
+}
+.wrap .blurbg .content .block #blur:before {
+  left: -42px;
+  background-position: 0 0;
+}
+.wrap .blurbg .content .block #blur:after {
+  right: -42px;
+  background-position: -100% 0;
+}
+.wrap .blurbg .content .block #red {
+  background: rgba(255, 0, 0, 0.5);
+}
+.wrap .blurbg .content .block #green {
+  background: rgba(0, 255, 0, 0.4);
+}
+.wrap .blurbg .content .block #blue {
+  background: rgba(0, 0, 255, 0.4);
+}
+.wrap .blurbg .content .block .value {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  left: 0;
+  color: white;
+  font-weight: 300;
+  font-size: 14px;
+  top: 9px;
 }
 .wrap .blurbg.top {
   width: 100%;
@@ -58,10 +143,6 @@ html {
   top: 0;
   height: 48px;
   text-align: center;
-  color: white;
-  line-height: 48px;
-  font-size: 28px;
-  font-weight: 300;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-sizing: border-box;
 }
@@ -79,8 +160,18 @@ html {
   background-position: center;
   transition: all 1s ease;
 }
+.wrap .blurbg.top .head:before {
+  content: "Page Blur";
+  color: white;
+  line-height: 48px;
+  font-size: 28px;
+  font-weight: 300;
+}
 .wrap .blurbg.top .pressed {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.wrap .blurbg.top .pressed + .head:before {
+  content: "Settings";
 }
 .wrap .blurbg.bottom {
   width: 100%;
@@ -88,6 +179,7 @@ html {
   left: 0;
   bottom: 0;
   transition: height 1s ease;
+  text-align: center;
 }
 .wrap .active {
   height: 64px;

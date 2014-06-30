@@ -9,16 +9,15 @@ function PageBlur(targetScreenId, blurRadius, blurBgImage, positionCorrect) {
             }
         })
     };
-    window.onload = function () {
-        html2canvas($(targetScreenId), {
-            onrendered: function (canvas) {
-                canvasImg = canvas.toDataURL("image/png");
-                stackBlurImage(canvasImg, 'blured', blurRadius);
-                var strDataURI = document.getElementById("blured").toDataURL("image/jpg");
-                $(blurBgImage).css('background-image', 'url(' + strDataURI + ')');
-            }
-        })
-    };
+                
+    html2canvas($(targetScreenId), {
+        onrendered: function (canvas) {
+            canvasImg = canvas.toDataURL("image/png");
+            stackBlurImage(canvasImg, 'blured', blurRadius);
+            var strDataURI = document.getElementById("blured").toDataURL("image/jpg");
+            $(blurBgImage).css('background-image', 'url(' + strDataURI + ')');
+        }
+    });
 
     if (positionCorrect) {
         setInterval(function () {
