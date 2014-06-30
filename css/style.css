@@ -92,7 +92,7 @@ html {
 .wrap .blurbg .content .block .slider .ui-slider-handle {
   height: 12px;
   width: 12px;
-  background: rgba(255, 255, 255, 0.9);
+  background: #ffffff;
   border-radius: 100%;
   float: left;
   margin: -4px 0 0 -6px;
