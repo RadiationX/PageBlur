@@ -1,35 +1,37 @@
-function PageBlur(targetScreenId, blurRadius, blurBgImage, positionCorrect) {
-    window.onresize = function () {
-        html2canvas($(targetScreenId), {
-            onrendered: function (canvas) {
-                canvasImg = canvas.toDataURL("image/png");
-                stackBlurImage(canvasImg, 'blured', blurRadius);
-                var strDataURI = document.getElementById("blured").toDataURL("image/jpg");
-                $(blurBgImage).css('background-image', 'url(' + strDataURI + ')');
-            }
-        })
-    };
-                
-    html2canvas($(targetScreenId), {
+function PageBlur(targetScreenId, blurRadius, blurBgImage, positionCorrect, fastBlur) {
+    var targetScreenId = document.getElementById(targetScreenId);
+    html2canvas(targetScreenId, {
         onrendered: function (canvas) {
-            canvasImg = canvas.toDataURL("image/png");
-            stackBlurImage(canvasImg, 'blured', blurRadius);
-            var strDataURI = document.getElementById("blured").toDataURL("image/jpg");
-            $(blurBgImage).css('background-image', 'url(' + strDataURI + ')');
+            var canvasImg = document.body.appendChild(canvas);
+            canvasImg.id = 'canvasImg';
+            
+            var height = targetScreenId.offsetHeight;
+            alert(height);
+            var width = targetScreenId.offsetWidth;
+            if (fastBlur) {
+                integralBlurCanvasRGB(canvasImg.id, 0, 0, width, height, blurRadius, 1);
+            } else {
+                stackBlurCanvasRGB(canvasImg.id, 0, 0, width, height, blurRadius);
+            }
+            $(blurBgImage).css('background-image', 'url(' + document.getElementById(canvasImg.id).toDataURL("image/png") + ')');
         }
     });
 
+
+
     if (positionCorrect) {
-        setInterval(function () {
-            var attachment = $(blurBgImage).css("background-attachment");
-            var tsPos = $(targetScreenId).offset();
-            var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+        var attachment = $(blurBgImage).css("background-attachment");
+        var tsPos;
+        var scrolled;
+        window.onscroll = function(){
+            tsPos = $(targetScreenId).offset();
+            scrolled = window.pageYOffset || document.documentElement.scrollTop;
             if (attachment === 'fixed') {
                 var pos = '' + (tsPos.left) + 'px ' + (tsPos.top - scrolled) + 'px';
             } else {
                 var pos = '' + (-$(blurBgImage).position().left + tsPos.left) + 'px ' + (-$(blurBgImage).position().top + tsPos.top - scrolled) + 'px';
             };
             $(blurBgImage).css('background-position', pos);
-        }, 0);
+        };
     };
 };

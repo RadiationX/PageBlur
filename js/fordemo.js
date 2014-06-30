@@ -9,7 +9,7 @@ $().ready(function () {
     var button = $(".setting"),
         bottom = $('.bottom');
     button.click(function () {
-        $('.active').height('0px');
+        $('.active').height('200px');
         bottom.toggleClass('active');
         button.toggleClass('pressed');
         $('.active').height($(window).height() - $('.top').height() - 1 + 'px');

@@ -5,8 +5,8 @@ html {
   height: 100%;
   font-family: 'roboto';
 }
-#blured {
-  display: none;
+#canvasImg {
+  dsisplay: none;
 }
 .wrap {
   height: 100%;
@@ -54,7 +54,7 @@ html {
   max-width: 100%;
 }
 .wrap .blurbg {
-  background-attachment: fixed;
+  background-attachment: fixeds;
 }
 .wrap .blurbg .color {
   height: 100%;

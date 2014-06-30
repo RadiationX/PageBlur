@@ -10,14 +10,7 @@
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/html2canvas.min.js" type="text/javascript"></script>
     <script src="js/EditedStackBlur.js" type="text/javascript"></script>
-    <script src="js/PageBlur.js"></script>
-    <script src="js/fordemo.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript">
-        $().ready(function () {
-            PageBlur('#screen', 15, '.blurbg', true);
-        });
-    </script>
+    <script src="js/IntegralImage.js" type="text/javascript"></script>
     <style>
         @import url(http://fonts.googleapis.com/css?family=Roboto:400,300&subset=latin,cyrillic);
     </style>
@@ -50,7 +43,9 @@
                 <div class="app">App 13</div>
                 <div class="app">App 14</div>
                 <div class="app">App 15</div>
-                <div class="big"><img src="/PageBlur/images/settingscont.png" alt=""></div>
+                <div class="big">
+                    <img src="/PageBlur/images/settingscont.png" alt="">
+                </div>
                 <div class="app">App 16</div>
                 <div class="app">App 17</div>
                 <div class="app">App 18</div>
@@ -94,7 +89,14 @@
             </div>
         </div>
     </div>
-    <canvas id="blured"></canvas>
+    <script src="js/PageBlur.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript">
+        setTimeout(function(){
+            PageBlur('screen', 5, '.blurbg', true, true);
+        },100);
+    </script>
+    <script src="js/fordemo.js"></script>
 </body>
 
 </html>
