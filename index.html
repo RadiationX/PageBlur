@@ -12,7 +12,7 @@
     <script src="js/EditedStackBlur.js" type="text/javascript"></script>
     <script src="js/IntegralImage.js" type="text/javascript"></script>
     <style>
-        @import url(http://fonts.googleapis.com/css?family=Roboto:400,300&subset=latin,cyrillic);
+        /*@import url(http://fonts.googleapis.com/css?family=Roboto:400,300&subset=latin,cyrillic);*/
     </style>
 </head>
 
@@ -89,12 +89,21 @@
             </div>
         </div>
     </div>
+    
     <script src="js/PageBlur.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript">
         setTimeout(function(){
-            PageBlur('screen', 5, '.blurbg', true, true);
-        },100);
+            //PageBlur('screen', 5, '.blurbg', true, false);
+            PageBlur({
+                targetScreenId: 'screen',
+                blurRadius: 5,
+                blurBgImage: '.blurbg',
+                positionCorrect: true,
+                fastBlur: true,
+                blurBgImageC: 'blurbg',
+            });
+        },0);
     </script>
     <script src="js/fordemo.js"></script>
 </body>
