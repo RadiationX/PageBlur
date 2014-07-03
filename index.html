@@ -17,18 +17,14 @@
 </head>
 
 <body>
+   
     <div class="wrap">
         <div class="blurbg top">
-            <div class="color"></div>
-            <div class="content">
-                <div class="setting"></div>
-                <span class="head"></span>
-            </div>
         </div>
 
         <div id="screen">
             <div class="apps">
-                <div class="app">App 1</div>
+                <div class="app" id='lalka'>App 1</div>
                 <div class="app">App 2</div>
                 <div class="app">App 3</div>
                 <div class="app">App 4</div>
@@ -44,7 +40,7 @@
                 <div class="app">App 14</div>
                 <div class="app">App 15</div>
                 <div class="big">
-                    <img src="/PageBlur/images/settingscont.png" alt="">
+                    <img src="/images/settingscont.png" alt="">
                 </div>
                 <div class="app">App 16</div>
                 <div class="app">App 17</div>
@@ -63,49 +59,25 @@
                 <div class="app">App 30</div>
             </div>
         </div>
-
         <div class="blurbg bottom">
-            <div class="color"></div>
-            <div class="content">
-                <div class="block">
-                    <div class="slider" id="blur">
-                        <div class="value">Blur radius: 15px</div>
-                    </div>
-                </div>
-                <div class="block">
-                    <div class="slider" id="red">
-                        <div class="value">Red color</div>
-                    </div>
-                    <div class="slider" id="green">
-                        <div class="value">Green color</div>
-                    </div>
-                    <div class="slider" id="blue">
-                        <div class="value">Blue color</div>
-                    </div>
-                    <div class="slider" id="transparency">
-                        <div class="value">Transparency</div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
-    
     <script src="js/PageBlur.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript">
-        setTimeout(function(){
-            //PageBlur('screen', 5, '.blurbg', true, false);
+        window.onload = function() {
             PageBlur({
                 targetScreenId: 'screen',
-                blurRadius: 5,
-                blurBgImage: '.blurbg',
+                blurRadius: 10,
+                blurBgWrap: 'blurbg',
+                blurBgImage: 'image',
                 positionCorrect: true,
-                fastBlur: true,
-                blurBgImageC: 'blurbg',
+                fastBlur: false,
             });
-        },0);
+        };
     </script>
-    <script src="js/fordemo.js"></script>
+    <div class="loading" id='loading'>Loading...</div>
 </body>
 
 </html>

@@ -8,15 +8,23 @@ html {
     height: 100%;
     font-family: 'roboto', sans-serif;
 }
-#canvasImg {
-    display: none;
+#loading{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    background: rgba(255,255,255,1);
+    font-size: 32px;
+    text-align: center;
+    padding-top: 200px;
+    transition: all 1s ease;
 }
 .wrap {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
     position: relative;
     #screen {
         background: rgb(164, 115, 206) url(../images/bg2.jpg);
-        background-size: 100% 100%;
         float: left;
         padding: 48px 0 64px 0;
         width: 100%;
@@ -55,8 +63,9 @@ html {
         }
     }
     .blurbg {
-        background-attachment: fixed;
+        background-attachment: fixsed;
         background-repeat: no-repeat;
+        overflow: hidden;
         .color{
             height: 100%;
             width: 100%;
@@ -144,11 +153,15 @@ html {
         width: 100%;
         position: fixed;
         left: 0;
-        top: 0;
+        top: 0px;
         height: 48px;
         text-align: center;
         border-bottom: @border1;
         box-sizing: border-box;
+        transition: all 1s ease;
+        &:hover{
+            height: 150px;    
+        }
         .setting {
             position: absolute;
             top: 0;
@@ -184,8 +197,13 @@ html {
         bottom: 0;
         transition: height 1s ease;
         text-align: center;
-
+        height: 200px;
+        border-top: @border1;
+        &:hover{
+            height: 300px;    
+        }
     }
+
     .active {
         height: 64px;
     }

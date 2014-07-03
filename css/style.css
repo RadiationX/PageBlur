@@ -5,8 +5,17 @@ html {
   height: 100%;
   font-family: 'roboto', sans-serif;
 }
-#canvasImg {
-  display: none;
+#loading {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #ffffff;
+  font-size: 32px;
+  text-align: center;
+  padding-top: 200px;
+  transition: all 1s ease;
 }
 .wrap {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
@@ -14,7 +23,6 @@ html {
 }
 .wrap #screen {
   background: #a473ce url(../images/bg2.jpg);
-  background-size: 100% 100%;
   float: left;
   padding: 48px 0 64px 0;
   width: 100%;
@@ -53,8 +61,9 @@ html {
   max-width: 100%;
 }
 .wrap .blurbg {
-  background-attachment: fixed;
+  background-attachment: fixsed;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 .wrap .blurbg .color {
   height: 100%;
@@ -140,11 +149,15 @@ html {
   width: 100%;
   position: fixed;
   left: 0;
-  top: 0;
+  top: 0px;
   height: 48px;
   text-align: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-sizing: border-box;
+  transition: all 1s ease;
+}
+.wrap .blurbg.top:hover {
+  height: 150px;
 }
 .wrap .blurbg.top .setting {
   position: absolute;
@@ -180,6 +193,11 @@ html {
   bottom: 0;
   transition: height 1s ease;
   text-align: center;
+  height: 200px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.wrap .blurbg.bottom:hover {
+  height: 300px;
 }
 .wrap .active {
   height: 64px;
