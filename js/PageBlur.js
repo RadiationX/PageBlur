@@ -69,7 +69,7 @@ function PageBlur(setup) {
                 arrayWrap[arrayWrapIndex].id = blurBgWrap + arrayWrapIndex;
                 arrayWrap[arrayWrapIndex].appendChild(newCanvas);
             }
-            if(arrayWrapIndex == -1){
+            if (arrayWrapIndex == -1) {
                 document.getElementById('loading').style.opacity = '0.0';
             }
         }
@@ -82,23 +82,25 @@ function PageBlur(setup) {
             var scrolled = window.pageYOffset || document.documentElement.scrollTop;
             var y;
             var wrapPos;
-            var position;
+            var positionY;
+            var positionX;
             arrayWrapIndex = arrayWrapLenght - 1;
             for (; arrayWrapIndex > -1; arrayWrapIndex--) {
                 posCorrecElement = document.getElementById(blurBgImage + arrayWrapIndex);
                 wrapPos = arrayWrap[arrayWrapIndex];
                 var kar = getComputedStyle(wrapPos, '').bottom;
                 y = wrapPos.offsetTop;
+                positionX = -wrapPos.offsetLeft - targetScreenId.offsetLeft;
                 if (kar != 'auto') {
-                    position = posCorrecElement.offsetHeight - document.body.clientHeight - scrolled + parseInt(kar, 10);
+                    positionY = posCorrecElement.offsetHeight - document.body.clientHeight - scrolled + parseInt(kar, 10);
                 } else {
-                    position = -y - scrolled;
+                    positionY = -y - scrolled;
                 }
-                posCorrecElement.style.webkitTransform = 'translate3d(0,' + (position) + 'px,0)';
-                posCorrecElement.style.mozTransform = 'translate3d(0,' + (position) + 'px,0)';
-                posCorrecElement.style.msTransform = 'translate(0,' + (position) + 'px)';
-                posCorrecElement.style.oTransform = 'translate3d(0,' + (position) + 'px,0)';
-                posCorrecElement.style.transform = 'translate(0,' + (position) + 'px)';
+                posCorrecElement.style.webkitTransform = 'translate3d(' + positionX + 'px,' + (positionY) + 'px,0)';
+                posCorrecElement.style.mozTransform = 'translate3d(' + positionX + ',' + (positionY) + 'px,0)';
+                posCorrecElement.style.msTransform = 'translate(' + positionX + ',' + (positionY) + 'px)';
+                posCorrecElement.style.oTransform = 'translate3d(' + positionX + ',' + (positionY) + 'px,0)';
+                posCorrecElement.style.transform = 'translate(' + positionX + ',' + (positionY) + 'px)';
             }
         };
         setTimeout(function () {
