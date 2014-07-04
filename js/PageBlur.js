@@ -40,7 +40,7 @@ function PageBlur(setup) {
         onrendered: function (canvas) {
             var forblur = document.body.appendChild(canvas);
             forblur.id = 'temporaryCanvas';
-            forblur.style.display = 'none';
+            //forblur.style.display = 'none';
             var height = targetScreenId.offsetHeight;
             var width = targetScreenId.offsetWidth;
             if (fastBlur) {
@@ -69,8 +69,12 @@ function PageBlur(setup) {
                 arrayWrap[arrayWrapIndex].id = blurBgWrap + arrayWrapIndex;
                 arrayWrap[arrayWrapIndex].appendChild(newCanvas);
             }
+            document.body.removeChild(document.getElementById(forblur.id));
             if (arrayWrapIndex == -1) {
                 document.getElementById('loading').style.opacity = '0.0';
+                setTimeout(function(){
+                    document.getElementById('loading').style.display = 'none';    
+                },1100);
             }
         }
     });
@@ -96,11 +100,11 @@ function PageBlur(setup) {
                 } else {
                     positionY = -y - scrolled;
                 }
-                posCorrecElement.style.webkitTransform = 'translate3d(' + positionX + 'px,' + (positionY) + 'px,0)';
-                posCorrecElement.style.mozTransform = 'translate3d(' + positionX + ',' + (positionY) + 'px,0)';
-                posCorrecElement.style.msTransform = 'translate(' + positionX + ',' + (positionY) + 'px)';
-                posCorrecElement.style.oTransform = 'translate3d(' + positionX + ',' + (positionY) + 'px,0)';
-                posCorrecElement.style.transform = 'translate(' + positionX + ',' + (positionY) + 'px)';
+                posCorrecElement.style.webkitTransform = 'translate(' + positionX + 'px,' + (positionY) + 'px)';
+                posCorrecElement.style.mozTransform = 'translate(' + positionX + 'px,' + (positionY) + 'px)';
+                posCorrecElement.style.msTransform = 'translate(' + positionX + 'px,' + (positionY) + 'px)';
+                posCorrecElement.style.oTransform = 'translate(' + positionX + 'px,' + (positionY) + 'px)';
+                posCorrecElement.style.transform = 'translate(' + positionX + 'px,' + (positionY) + 'px)';
             }
         };
         setTimeout(function () {
