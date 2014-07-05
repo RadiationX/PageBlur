@@ -72,9 +72,9 @@ function PageBlur(setup) {
             document.body.removeChild(document.getElementById(forblur.id));
             if (arrayWrapIndex == -1) {
                 document.getElementById('loading').style.opacity = '0.0';
-                setTimeout(function(){
-                    document.getElementById('loading').style.display = 'none';    
-                },1100);
+                setTimeout(function () {
+                    document.getElementById('loading').style.display = 'none';
+                }, 1100);
             }
         }
     });

@@ -4,6 +4,7 @@ html {
   margin: 0;
   height: 100%;
   font-family: 'roboto', sans-serif;
+  overflow: hidden;
 }
 #loading {
   height: 100%;
@@ -16,189 +17,235 @@ html {
   text-align: center;
   padding-top: 200px;
   transition: all 1s ease;
+  z-index: 100;
+  opacity: 0;
+}
+.box {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 360px;
+  overflow: hidden;
+}
+.box h1 {
+  background: #7fcc21;
+  margin: 0;
+  padding: 12px;
+  font-weight: 300;
+  border-radius: 3px 3px 0 0;
+  color: white;
+}
+.box .text {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px;
+  text-align: justify;
+}
+.box .text span {
+  font-weight: 400;
+  font-size: 15px;
+}
+.box .text img {
+  max-width: 80%;
+  margin: 12px auto;
+  display: block;
+}
+.box .text a {
+  display: block;
+  padding: 4px;
+  text-decoration: none;
+  color: #0e82ac;
+}
+.box .buttons {
+  padding: 16px 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 0 0 3px 3px;
+  border-top: 1px solid #7fcc21;
+  font-size: 0px;
+}
+.box .buttons .button {
+  background: #7eca21;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  border-radius: 3px;
+  font-size: 22px;
+  width: 23%;
+  margin: 0 1%;
+  font-weight: 300;
+  box-sizing: border-box;
+}
+.box .buttons .button:hover {
+  background: #73b81e;
+}
+.box .buttons .button:active {
+  background: #68a71b;
 }
 .wrap {
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
   position: relative;
+  height: 100%;
 }
 .wrap #screen {
-  background: #a473ce url(../images/bg2.jpg);
-  float: left;
-  padding: 48px 0 64px 0;
-  width: 100%;
+  position: relative;
+  background: #3e4651 url(../images/1742994.jpg);
   box-sizing: border-box;
-  min-height: 100%;
-}
-.wrap #screen .apps {
+  height: 100%;
   text-align: center;
-  margin: 0 auto;
-  max-width: 450px;
-  padding-top: 16px;
 }
-.wrap #screen .apps .app {
-  display: inline-block;
-  width: 72px;
-  height: 72px;
-  margin: 0 16px 32px 16px;
-  box-sizing: border-box;
-  background-color: rgba(0, 255, 255, 0.2);
-  color: white;
-  line-height: 70px;
-  border-radius: 10px;
-  box-shadow: inset 3px 3px 10px -7px #ffffff, 3px 3px 10px -7px #000000;
-}
-.wrap #screen .apps .big {
-  display: block;
-  margin: 0 32px 32px 32px;
-  box-sizing: border-box;
-  color: white;
-  border-radius: 50px;
-  font-size: 48px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.wrap #screen .apps .big img {
-  max-width: 100%;
-}
-.wrap .blurbg {
-  background-attachment: fixsed;
-  background-repeat: no-repeat;
-  overflow: hidden;
-}
-.wrap .blurbg .color {
-  height: 100%;
-  width: 100%;
-  background: rgba(255, 0, 255, 0);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-.wrap .blurbg .content {
-  position: absolute;
-  width: 100%;
-  z-index: 2;
-}
-.wrap .blurbg .content .block {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 0 64px;
-  position: relative;
-}
-.wrap .blurbg .content .block .slider {
-  margin: 36px auto;
-  height: 4px;
-  background: rgba(0, 0, 0, 0.5);
-  position: relative;
-  text-align: left;
-  max-width: 450px;
-}
-.wrap .blurbg .content .block .slider .ui-widget-header {
-  height: 100%;
-  width: 0%;
-  background: rgba(255, 255, 255, 0.8);
-  float: left;
-}
-.wrap .blurbg .content .block .slider .ui-slider-handle {
-  height: 12px;
-  width: 12px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 100%;
-  float: left;
-  margin: -4px 0 0 -6px;
-  position: absolute;
-  outline: none;
-}
-.wrap .blurbg .content .block #blur:before,
-.wrap .blurbg .content .block #blur:after {
+.wrap #screen:after {
   content: "";
-  position: absolute;
-  height: 24px;
-  width: 24px;
-  background-image: url(../images/settingsblur.png);
-  background-size: auto 100%;
-  top: -10px;
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }
-.wrap .blurbg .content .block #blur:before {
-  left: -42px;
-  background-position: 0 0;
+.hidecheck {
+  display: none;
 }
-.wrap .blurbg .content .block #blur:after {
-  right: -42px;
-  background-position: -100% 0;
-}
-.wrap .blurbg .content .block #red {
-  background: rgba(255, 0, 0, 0.5);
-}
-.wrap .blurbg .content .block #green {
-  background: rgba(0, 255, 0, 0.4);
-}
-.wrap .blurbg .content .block #blue {
-  background: rgba(0, 0, 255, 0.4);
-}
-.wrap .blurbg .content .block .value {
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  left: 0;
-  color: white;
-  font-weight: 300;
-  font-size: 14px;
-  top: 9px;
-}
-.wrap .blurbg.top {
-  width: 100%;
+.blurbg {
   position: fixed;
+  overflow: hidden;
+  width: 100%;
+  z-index: 10;
   left: 0;
-  top: 0px;
-  height: 48px;
-  text-align: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  box-sizing: border-box;
-  transition: all 1s ease;
 }
-.wrap .blurbg.top:hover {
-  height: 150px;
-}
-.wrap .blurbg.top .setting {
+.blurbg .color {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 48px;
-  height: 100%;
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
-  background-color: rgba(255, 255, 255, 0);
-  background-image: url(../images/settings.png);
-  background-repeat: no-repeat;
-  background-size: 70% 70%;
-  background-position: center;
-  transition: all 1s ease;
-}
-.wrap .blurbg.top .head:before {
-  content: "Page Blur";
-  color: white;
-  line-height: 48px;
-  font-size: 28px;
-  font-weight: 300;
-}
-.wrap .blurbg.top .pressed {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-.wrap .blurbg.top .pressed + .head:before {
-  content: "Settings";
-}
-.wrap .blurbg.bottom {
-  width: 100%;
-  position: fixed;
   left: 0;
-  bottom: 0;
-  transition: height 1s ease;
+  z-index: 11;
+  width: 100%;
+  height: 100%;
+}
+.blurbg .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 12;
+  width: 100%;
+}
+.notify {
+  height: 0%;
+  transition: all 1s ease;
+  box-shadow: 0 0 10px black;
+}
+.notify .color {
+  background: rgba(0, 0, 0, 0.1);
+}
+.notify .content {
+  height: 100%;
   text-align: center;
-  height: 200px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
 }
-.wrap .blurbg.bottom:hover {
-  height: 300px;
+.notify .content .slide {
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-transform: translate(0, -100%);
+  height: 100%;
+  width: 100%;
+  padding-top: 64px;
+  box-sizing: border-box;
+  transition: all 1s ease;
+  opacity: 0;
 }
-.wrap .active {
-  height: 64px;
+.notify .content .slide:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.notify .content .head {
+  position: absolute;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  top: 0;
+}
+.notify .content .head h1 {
+  margin: 0;
+  font-weight: 300;
+  line-height: 48px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0 64px;
+}
+.notify .content .head .button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 48px;
+  width: 48px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+}
+.notify .content .head .button:before {
+  content: "\d7";
+  height: 48px;
+  line-height: 45px;
+  font-size: 48px;
+}
+.notify .content .head .button:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+.notify .content .head .button:active {
+  background: rgba(255, 255, 255, 0);
+}
+.notify .content .social .buttons {
+  display: inline-block;
+}
+.notify .content .social .buttons .button {
+  margin-bottom: 20px;
+  padding: 8px 10px;
+  color: white;
+  border-radius: 3px;
+  text-decoration: none;
+  display: block;
+  text-align: right;
+  font-size: 20px;
+  vertical-align: middle;
+  min-width: 125px;
+}
+.notify .content .social .buttons .button span {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 32px;
+  vertical-align: middle;
+  margin-left: 16px;
+}
+.notify .content .social .buttons .button:before {
+  line-height: 32px;
+  vertical-align: middle;
+  height: 32px;
+  display: inline-block;
+  float: left;
+}
+.notify .content .social .tw {
+  background: #1FC7FF;
+}
+.notify .content .social .fb {
+  background: #3C599F;
+}
+.notify .content .social .vk {
+  background: #4C75A3;
+}
+.notify .content .social .gplus {
+  background: #DD4B39;
+}
+#share:checked ~ .notify,
+#info:checked ~ .notify,
+#setting:checked ~ .notify {
+  height: 100%;
+}
+#share:checked ~ .notify .social,
+#info:checked ~ .notify .info,
+#setting:checked ~ .notify .setting {
+  -webkit-transform: translate(0, 0%);
+  opacity: 1;
+}
+#lang:checked ~ * .en,
+#lang ~ * .ru {
+  display: none;
+}
+#lang:checked ~ * .ru,
+#lang ~ * .en {
+  display: block;
 }

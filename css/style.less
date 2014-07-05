@@ -7,204 +7,250 @@ html {
     margin: 0;
     height: 100%;
     font-family: 'roboto', sans-serif;
+    overflow: hidden;
 }
-#loading{
+
+#loading {
     height: 100%;
     width: 100%;
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
-    background: rgba(255,255,255,1);
+    background: rgba(255, 255, 255, 1);
     font-size: 32px;
     text-align: center;
     padding-top: 200px;
     transition: all 1s ease;
+    z-index: 100;
+    opacity: 0;
+}
+.box {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 360px;
+    overflow: hidden;
+    h1 {
+        background: #7fcc21;
+        margin: 0;
+        padding: 12px;
+        font-weight: 300;
+        border-radius: 3px 3px 0 0;
+        color: white;
+    }
+    .text {
+        background: rgba(255,255,255,0.9);
+        padding: 8px;
+        text-align: justify;
+        span {
+            font-weight: 400;
+            font-size: 15px;
+        }
+        img {
+            max-width: 80%;
+            margin: 12px auto;
+            display: block;
+        }
+        a {
+            display: block;
+            padding: 4px;
+            text-decoration: none;
+            color: #0e82ac;
+        }
+    }
+    .buttons {
+        padding: 16px 8px;
+        background: rgba(255,255,255,0.9);
+        border-radius: 0 0 3px 3px;
+        border-top: 1px solid #7fcc21;
+        font-size: 0px;
+        
+        .button {
+            background: #7eca21;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            border-radius: 3px;
+            font-size: 22px;
+            width: 23%;
+            margin: 0 1%;
+            font-weight: 300;
+            box-sizing: border-box;
+            &:hover {
+                background: #73b81e;
+            }
+            &:active {
+                background: #68a71b;
+            }
+        }
+    }
 }
 .wrap {
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
     position: relative;
+    height: 100%;
     #screen {
-        background: rgb(164, 115, 206) url(../images/bg2.jpg);
-        float: left;
-        padding: 48px 0 64px 0;
-        width: 100%;
+        position: relative;
+        background: #3E4651 url(../images/1742994.jpg);
         box-sizing: border-box;
-        min-height: 100%;
-        .apps {
-            text-align: center;
-            margin: 0 auto;
-            max-width: 450px;
-            padding-top: 16px;
-            .app {
-                display: inline-block;
-                width: 72px;
-                height: 72px;
-                margin: 0 16px 32px 16px;
-                box-sizing: border-box;
-                background-color: rgba(0, 255, 255, 0.2);
-                color: white;
-                line-height: 70px;
-                border-radius: 10px;
-                box-shadow: inset 3px 3px 10px -7px white, 3px 3px 10px -7px black;
-            }
-            .big {
-                display: block;
-                margin: 0 32px 32px 32px;
-                box-sizing: border-box;
-                color: white;
-                border-radius: 50px;
-                font-size: 48px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                img{
-                    max-width: 100%;    
-                }
-            }
+        height: 100%;
+        text-align: center;
+        &:after {
+            content: "";
+            position: relative;
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
         }
     }
-    .blurbg {
-        background-attachment: fixsed;
-        background-repeat: no-repeat;
-        overflow: hidden;
-        .color{
+}
+.hidecheck {
+    display: none;
+}
+.blurbg {
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    z-index: 10;
+    left: 0;
+    .color {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 11;
+        width: 100%;
+        height: 100%;
+    }
+    .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 12;
+        width: 100%;
+    }
+}
+.notify {
+    height: 0%;
+    transition: all 1s ease;
+    box-shadow: 0 0 10px black;
+    .color{
+        background: rgba(0,0,0,0.1);    
+    }
+    .content {
+        height: 100%;
+        text-align: center;
+        box-sizing: border-box;
+        .slide{
+            position: absolute;
+            left: 0;
+            top: 0;
+            -webkit-transform: translate(0, -100%);
             height: 100%;
             width: 100%;
-            background: rgba(255,0,255,0.0);
-            position: absolute;
-            top:0;
-            left: 0;
-            z-index: 1;
+            padding-top: 64px;
+            box-sizing: border-box;
+            transition: all 1s ease;
+            opacity: 0;
+            &:after {
+                content: "";
+                position: relative;
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+            }
         }
-        .content{
+        .head{
             position: absolute;
             width: 100%;
-            z-index: 2;
-            .block{                
-                border-bottom: @border1;
+            border-bottom: @border1;
+            color: white;
+            top:0;
+            h1{
+                margin: 0;
+                font-weight: 300;
+                line-height: 48px;
+                background: rgba(255,255,255,0.1);
                 padding: 0 64px;
-                position: relative;
-                .slider{
-                    margin: 36px auto;
-                    height: 4px;
-                    background: rgba(0,0,0,0.5);
-                    position: relative;
-                    text-align: left;
-                    max-width: 450px;
-                    .ui-widget-header{
-                        height: 100%;
-                        width: 0%;
-                        background: rgba(255,255,255,0.8);
-                        float: left;
-                    }
-                    .ui-slider-handle{
-                        height: 12px;
-                        width: 12px;
-                        background: rgba(255,255,255,0.9);
-                        border-radius: 100%;
-                        float: left;
-                        margin: -4px 0 0 -6px;
-                        position: absolute;
-                        outline: none;
-                    }
-                    
+            }
+            .button{
+                position: absolute;
+                right: 0;
+                top:0;
+                height: 48px;
+                width: 48px;
+                border-left: @border1;
+                background: rgba(255, 255, 255, 0.1);
+                &:before{
+                    content: "\d7";
+                    height: 48px;
+                    line-height: 45px;
+                    font-size: 48px;
                 }
-                #blur{
-                    &:before, &:after{
-                        content: "";
-                        position: absolute;
-                        height: 24px;
-                        width: 24px;
-                        background-image: url(../images/settingsblur.png);
-                        background-size: auto 100%;
-                        top:-10px;
+                &:hover{
+                    background: rgba(255, 255, 255, 0.05);    
+                }
+                &:active{
+                    background: rgba(255, 255, 255, 0.0);    
+                }
+            }
+        }
+        .social {
+            .buttons{
+                display: inline-block;
+                .button{
+                    margin-bottom: 20px;
+                    padding: 8px 10px;
+                    color: white;
+                    border-radius: 3px;
+                    text-decoration: none;
+                    display: block;
+                    text-align: right;
+                    font-size: 20px;
+                    vertical-align: middle;
+                    min-width: 125px;
+                    span{
+                        font-size: 20px;
+                        font-weight: 300;
+                        line-height: 32px;
+                        vertical-align: middle;
+                        margin-left: 16px;
                     }
                     &:before{
-                        left: -42px;
-                        background-position: 0 0;
+                        line-height: 32px;
+                        vertical-align: middle;
+                        height: 32px;
+                        display: inline-block;
+                        float: left;
                     }
-                    &:after{
-                        right: -42px;
-                        background-position: -100% 0;
-                    }    
                 }
-                #red{
-                    background: rgba(255,0,0,0.5);    
-                }
-                #green{
-                    background: rgba(0,255,0,0.4);    
-                }
-                #blue{
-                    background: rgba(0,0,255,0.4);   
-                }
-                .value{
-                    position: absolute;
-                    width: 100%;
-                    text-align: center;
-                    left: 0;
-                    color: white;
-                    font-weight: 300;
-                    font-size: 14px;
-                    top: 9px;
-                }
+            }
+            .tw{
+                background: #1FC7FF;    
+            }
+            .fb{
+                background: #3C599F;    
+            }
+            .vk{
+                background: #4C75A3;    
+            }
+            .gplus{
+                background: #DD4B39;    
             }
         }
     }
-    .blurbg.top {
-        width: 100%;
-        position: fixed;
-        left: 0;
-        top: 0px;
-        height: 48px;
-        text-align: center;
-        border-bottom: @border1;
-        box-sizing: border-box;
-        transition: all 1s ease;
-        &:hover{
-            height: 150px;    
-        }
-        .setting {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 48px;
-            height: 100%;
-            border-left: @border1;
-            background-color: rgba(255, 255, 255, 0.0);
-            background-image: url(../images/settings.png);
-            background-repeat: no-repeat;
-            background-size: 70% 70%;
-            background-position: center;
-            transition: all 1s ease;
-        }
-        .head:before{
-            content: "Page Blur";
-            color: white;
-            line-height: 48px;
-            font-size: 28px;
-            font-weight: 300;    
-        }
-        .pressed {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        .pressed + .head:before{
-            content: "Settings";   
-        }
-    }
-    .blurbg.bottom {
-        width: 100%;
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        transition: height 1s ease;
-        text-align: center;
-        height: 200px;
-        border-top: @border1;
-        &:hover{
-            height: 300px;    
-        }
-    }
-
-    .active {
-        height: 64px;
-    }
+}
+#share:checked ~ .notify,
+#info:checked ~ .notify,
+#setting:checked ~ .notify{
+    height: 100%;
+}
+#share:checked ~ .notify .social,
+#info:checked ~ .notify .info,
+#setting:checked ~ .notify .setting{
+    -webkit-transform: translate(0, 0%);
+    opacity: 1;
+}
+#lang:checked ~ * .en,#lang ~ * .ru{
+    display: none;    
+}
+#lang:checked ~ * .ru, #lang ~ * .en{
+    display: block;    
 }

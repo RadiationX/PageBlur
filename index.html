@@ -6,70 +6,81 @@
     <title>PageBlur</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>-->
-    <script src="js/jquery-1.11.0.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
     <script src="js/html2canvas.min.js" type="text/javascript"></script>
     <script src="js/EditedStackBlur.js" type="text/javascript"></script>
     <script src="js/IntegralImage.js" type="text/javascript"></script>
     <style>
-        /*@import url(http://fonts.googleapis.com/css?family=Roboto:400,300&subset=latin,cyrillic);*/
+        @import url(http://fonts.googleapis.com/css?family=Roboto:400,300&subset=latin,cyrillic);
+        @import url(http://weloveiconfonts.com/api/?family=entypo);
+        [class*="entypo-"]:before {
+            font-family: 'entypo', sans-serif;
+        }
     </style>
 </head>
 
 <body>
-   
     <div class="wrap">
-        <div class="blurbg top">
-        </div>
-
-        <div id="screen">
-            <div class="apps">
-                <div class="app" id='lalka'>App 1</div>
-                <div class="app">App 2</div>
-                <div class="app">App 3</div>
-                <div class="app">App 4</div>
-                <div class="app">App 5</div>
-                <div class="app">App 6</div>
-                <div class="app">App 7</div>
-                <div class="app">App 8</div>
-                <div class="app">App 9</div>
-                <div class="app">App 10</div>
-                <div class="app">App 11</div>
-                <div class="app">App 12</div>
-                <div class="app">App 13</div>
-                <div class="app">App 14</div>
-                <div class="app">App 15</div>
-                <div class="big">
-                    <img src="/images/settingscont.png" alt="">
+        <input type="checkbox" id="share" class="hidecheck">
+        <input type="checkbox" id="info" class="hidecheck">
+        <input type="checkbox" id="setting" class="hidecheck">
+        <input type="checkbox" id="lang" class="hidecheck" checked>
+        <div class="blurbg notify">
+            <div class="color"></div>
+            <div class="content">
+                <div class="slide social">
+                    <div class="head">
+                        <h1 class="ru">Поделиться</h1>
+                        <h1 class="en">Share</h1>
+                        <label for="share" class="button"></label>
+                    </div>
+                    <div class="buttons">
+                        <a href="#" class="button tw entypo-twitter"><span>Twitter</span></a>
+                        <a href="#" class="button fb entypo-facebook"><span>Facebook</span></a>
+                        <a href="#" class="button gplus entypo-gplus"><span>Google+</span></a>
+                        <a href="#" class="button vk entypo-vkontakte"><span>Вконтакте</span></a>
+                    </div>
                 </div>
-                <div class="app">App 16</div>
-                <div class="app">App 17</div>
-                <div class="app">App 18</div>
-                <div class="app">App 19</div>
-                <div class="app">App 20</div>
-                <div class="app">App 21</div>
-                <div class="app">App 22</div>
-                <div class="app">App 23</div>
-                <div class="app">App 24</div>
-                <div class="app">App 25</div>
-                <div class="app">App 26</div>
-                <div class="app">App 27</div>
-                <div class="app">App 28</div>
-                <div class="app">App 29</div>
-                <div class="app">App 30</div>
+                <div class="slide info">
+                    <div class="head">
+                        <h1 class="ru">Информация</h1>
+                        <h1 class="en">Info</h1>
+                        <label for="info" class="button"></label>
+                    </div>
+                </div>
+                <div class="slide setting">
+                    <div class="head">
+                        <h1 class="ru">Настройки</h1>
+                        <h1 class="en">Setting</h1>
+                        <label for="setting" class="button"></label>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="blurbg bottom">
+        <div id="screen">
+            <div class="box">
+                <h1>PageBlur</h1>
+                <div class="text">
+                    <span class="ru">PageBlur - скрипт, который позволяет размыть любой элемент на странице. С помощью этого скрипта можно сделать превосходные эффекты для сайта.</span>
+                    <span class="en">PageBlur - script that allows you to blur any element on the page. With this script can make excellent effects for site.</span>
+                    <img src="images/idea.png" />
+                </div>
 
+                <div class="buttons">
+                    <label for="share" class="button entypo-share"></label>
+                    <label for="info" class="button entypo-info"></label>
+                    <label for="setting" class="button entypo-cog"></label>
+                    <label for="lang" class="button entypo-globe"></label>
+                </div>
+            </div>
         </div>
     </div>
     <script src="js/PageBlur.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript">
-        window.onload = function() {
+        window.onload = function () {
             PageBlur({
                 targetScreenId: 'screen',
-                blurRadius: 10,
+                blurRadius: 50,
                 blurBgWrap: 'blurbg',
                 blurBgImage: 'image',
                 positionCorrect: true,
@@ -77,7 +88,7 @@
             });
         };
     </script>
-    <div class="loading" id='loading'>Loading...</div>
+    <div class="loading" id='loading'>Bluring image, please wait.</div>
 </body>
 
 </html>
