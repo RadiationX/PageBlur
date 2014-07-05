@@ -77,7 +77,8 @@ function PageBlur(setup) {
                     document.getElementById('loading').style.display = 'none';
                 }, 1100);
             }
-        }
+        },
+        proxy:'http://radiationx.github.io'
     });
 
     /* Position correct */

@@ -16,6 +16,7 @@
             font-family: 'entypo', sans-serif;
         }
     </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -75,17 +76,18 @@
         </div>
     </div>
     <script src="js/PageBlur.js"></script>
-    <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript">
         window.onload = function () {
+            setTimeout(function(){
             PageBlur({
                 targetScreenId: 'screen',
-                blurRadius: 50,
+                blurRadius: 3,
                 blurBgWrap: 'blurbg',
                 blurBgImage: 'image',
                 positionCorrect: true,
                 fastBlur: false,
             });
+            },1000);
         };
     </script>
     <div class="loading" id='loading'>Bluring image, please wait.</div>
