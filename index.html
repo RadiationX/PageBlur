@@ -6,11 +6,14 @@
     <title>PageBlur</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>-->
+    <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="js/jquery-ui.min.js" type="text/javascript"></script>
     <script src="js/html2canvas.min.js" type="text/javascript"></script>
     <script src="js/EditedStackBlur.js" type="text/javascript"></script>
     <script src="js/IntegralImage.js" type="text/javascript"></script>
     <style>
         @import url(http://fonts.googleapis.com/css?family=Roboto:400,300&subset=latin,cyrillic);
+        
         @import url(http://weloveiconfonts.com/api/?family=entypo);
         [class*="entypo-"]:before {
             font-family: 'entypo', sans-serif;
@@ -47,6 +50,23 @@
                         <h1 class="en">Info</h1>
                         <label for="info" class="button"></label>
                     </div>
+                    <div class="text">
+                        <ul class="ru">
+                            <li class="entypo-gauge"><b>Высокая производительность</b> - используется <a href="http://html2canvas.hertzen.com">html2canvas</a> и одни из самых быстрых алгоритмов для размытия</li>
+                            <li class="entypo-target"><b>Корректировка позиции</b> - корректировка полученного размытого изображения с аппаратным ускорением</li>
+                            <li class="entypo-window"><b>Кроссбраузерная совместимость</b> - работает во всех современных браузерах</li>
+                            <li class="entypo-hourglass"><b>Выбор алгоритма размытия</b> - <a href="http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html">StackBlur</a>(медленный, но качественный) или <a href="http://www.quasimondo.com/IntegralImageForCanvas/IntegralImageBlurDemo.html">IntegralImageBlur</a>(быстрый, но низкого качества)</li>
+                        </ul>
+                        <ul class="en">
+                            <li class="entypo-gauge"><b>High perfomance</b> - use <a href="http://html2canvas.hertzen.com">html2canvas</a> and one of the most perfomance algorithm for blur</li>
+                            <li class="entypo-target"><b>Position correct</b> - correct position received blur image with hardware accelerated</li>
+                            <li class="entypo-window"><b>Cross-browser compatibility</b> - work on all modern browsers</li>
+                            <li class="entypo-hourglass"><b>Сhoise blur algorithm</b> - <a href="http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html">StackBlur</a>(slow, but high quality) or <a href="http://www.quasimondo.com/IntegralImageForCanvas/IntegralImageBlurDemo.html">IntegralImageBlur</a>(fast, but low quality)</li>
+                        </ul> 
+                        <a href="http://radiationx.github.io/PageBlur/" class="entypo-globe link"><span>Actual Demo Page</span></a>
+                                 <a href="https://github.com/RadiationX/PageBlur" class="entypo-github link"><span>GitHub</span></a>
+                                  
+                    </div>
                 </div>
                 <div class="slide setting">
                     <div class="head">
@@ -54,6 +74,20 @@
                         <h1 class="en">Setting</h1>
                         <label for="setting" class="button"></label>
                     </div>
+                    <div class="sliders">
+                        <h3 class="ru">Радиус размытия</h3>
+                        <h3 class="en">Blur radius</h3>
+                        <div id="blur" class="slider"></div>
+                        <h3 class="ru">Цвет фона</h3>
+                        <h3 class="en">Background color</h3>
+                        <div id="red" class="slider"></div>
+                        <div id="green" class="slider"></div>
+                        <div id="blue" class="slider"></div>
+                        <h3 class="ru">Прозрачность цвета</h3>
+                        <h3 class="en">Color transparency</h3>
+                        <div id="transparency" class="slider"></div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -61,36 +95,39 @@
             <div class="box">
                 <h1>PageBlur</h1>
                 <div class="text">
-                    <span class="ru">PageBlur - скрипт, который позволяет размыть любой элемент на странице. С помощью этого скрипта можно сделать превосходные эффекты для сайта.</span>
-                    <span class="en">PageBlur - script that allows you to blur any element on the page. With this script can make excellent effects for site.</span>
-                    <img src="images/idea.png" />
+                    <span class="ru">
+                    PageBlur - это кроссбраузерная библиотека для создания эффекта размытия страницы. 
+                    <br>
+                    С помощью этой библиотеки можно размыть любой элемент на странице, и использовать полученое изображение для создания различных эффектов на сайте.
+                    </span>
+                    <span class="en">PageBlur - it is cross-browser library for create at blur effect page.<br> 
+With this library you can blur any element on the page, and use the image to create different effects on the site.</span>
                 </div>
 
                 <div class="buttons">
                     <label for="share" class="button entypo-share"></label>
                     <label for="info" class="button entypo-info"></label>
-                    <label for="setting" class="button entypo-cog"></label>
-                    <label for="lang" class="button entypo-globe"></label>
+                    <label for="setting" class="button entypo-tools"></label>
+                    <label for="lang" class="button lang"></label>
                 </div>
             </div>
         </div>
     </div>
+    <script src="js/fordemo.js"></script>
     <script src="js/PageBlur.js"></script>
     <script type="text/javascript">
         window.onload = function () {
-            setTimeout(function(){
             PageBlur({
                 targetScreenId: 'screen',
-                blurRadius: 3,
+                blurRadius: 30,
                 blurBgWrap: 'blurbg',
                 blurBgImage: 'image',
                 positionCorrect: true,
                 fastBlur: false,
             });
-            },1000);
         };
     </script>
-    <div class="loading" id='loading'>Bluring image, please wait.</div>
+    <div class="loading" id='loading'><span>Bluring image, please wait</span></div>
 </body>
 
 </html>

@@ -4,7 +4,8 @@ function PageBlur(setup) {
         blurBgWrap = setup.blurBgWrap,
         blurBgImage = setup.blurBgImage,
         positionCorrect = setup.positionCorrect,
-        fastBlur = setup.fastBlur;
+        fastBlur = setup.fastBlur,
+        clean = setup.clean;
 
     /* Get element by class */
     if (document.getElementsByClassName) {
@@ -54,7 +55,10 @@ function PageBlur(setup) {
             var conte;
             for (; arrayWrapIndex > -1; arrayWrapIndex--) {
                 newCanvas = document.createElement('canvas');
+                
                 newCanvas.id = blurBgImage + arrayWrapIndex;
+                if(clean){ document.getElementById(newCanvas.id).parentNode.removeChild(document.getElementById(newCanvas.id));    
+                }
                 newCanvas.className = blurBgImage;
                 newCanvas.style.position = 'absolute';
                 newCanvas.style.left = '0px';

@@ -12,13 +12,23 @@ html {
   position: fixed;
   top: 0;
   left: 0;
-  background: #ffffff;
+  background: #31302b;
   font-size: 32px;
   text-align: center;
-  padding-top: 200px;
   transition: all 1s ease;
   z-index: 100;
-  opacity: 0;
+  opacity: 1;
+  color: white;
+}
+#loading:after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+#loading span {
+  vertical-align: middle;
+  display: inline-block;
 }
 .box {
   display: inline-block;
@@ -27,7 +37,7 @@ html {
   overflow: hidden;
 }
 .box h1 {
-  background: #7fcc21;
+  background: #f2672e;
   margin: 0;
   padding: 12px;
   font-weight: 300;
@@ -35,18 +45,13 @@ html {
   color: white;
 }
 .box .text {
-  background: rgba(255, 255, 255, 0.9);
+  background: #ffffff;
   padding: 8px;
   text-align: justify;
 }
 .box .text span {
   font-weight: 400;
-  font-size: 15px;
-}
-.box .text img {
-  max-width: 80%;
-  margin: 12px auto;
-  display: block;
+  font-size: 16px;
 }
 .box .text a {
   display: block;
@@ -56,13 +61,13 @@ html {
 }
 .box .buttons {
   padding: 16px 8px;
-  background: rgba(255, 255, 255, 0.9);
+  background: #ffffff;
   border-radius: 0 0 3px 3px;
-  border-top: 1px solid #7fcc21;
+  border-top: 1px solid #f2672e;
   font-size: 0px;
 }
 .box .buttons .button {
-  background: #7eca21;
+  background: #f2672e;
   display: inline-block;
   padding: 8px;
   color: white;
@@ -74,10 +79,10 @@ html {
   box-sizing: border-box;
 }
 .box .buttons .button:hover {
-  background: #73b81e;
+  background: #f15d22;
 }
 .box .buttons .button:active {
-  background: #68a71b;
+  background: #f05619;
 }
 .wrap {
   position: relative;
@@ -85,7 +90,7 @@ html {
 }
 .wrap #screen {
   position: relative;
-  background: #3e4651 url(../images/1742994.jpg);
+  background: #31302b url("../imsages/1742994.jpg");
   box-sizing: border-box;
   height: 100%;
   text-align: center;
@@ -127,9 +132,6 @@ html {
   transition: all 1s ease;
   box-shadow: 0 0 10px black;
 }
-.notify .color {
-  background: rgba(0, 0, 0, 0.1);
-}
 .notify .content {
   height: 100%;
   text-align: center;
@@ -157,7 +159,6 @@ html {
 .notify .content .head {
   position: absolute;
   width: 100%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
   top: 0;
 }
@@ -165,7 +166,6 @@ html {
   margin: 0;
   font-weight: 300;
   line-height: 48px;
-  background: rgba(255, 255, 255, 0.1);
   padding: 0 64px;
 }
 .notify .content .head .button {
@@ -174,20 +174,12 @@ html {
   top: 0;
   height: 48px;
   width: 48px;
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.1);
 }
 .notify .content .head .button:before {
   content: "\d7";
   height: 48px;
   line-height: 45px;
   font-size: 48px;
-}
-.notify .content .head .button:hover {
-  background: rgba(255, 255, 255, 0.05);
-}
-.notify .content .head .button:active {
-  background: rgba(255, 255, 255, 0);
 }
 .notify .content .social .buttons {
   display: inline-block;
@@ -203,6 +195,8 @@ html {
   font-size: 20px;
   vertical-align: middle;
   min-width: 125px;
+  box-sizing: border-box;
+  position: relative;
 }
 .notify .content .social .buttons .button span {
   font-size: 20px;
@@ -217,18 +211,135 @@ html {
   height: 32px;
   display: inline-block;
   float: left;
+  width: 32px;
+  text-align: center;
 }
-.notify .content .social .tw {
+.notify .content .social .buttons .button:active {
+  box-shadow: none;
+  top: 2px;
+}
+.notify .content .social .buttons .tw {
   background: #1FC7FF;
+  box-shadow: 0 2px 0 #006b8f;
 }
-.notify .content .social .fb {
+.notify .content .social .buttons .fb {
   background: #3C599F;
+  box-shadow: 0 2px 0 #1d2c4e;
 }
-.notify .content .social .vk {
+.notify .content .social .buttons .vk {
   background: #4C75A3;
+  box-shadow: 0 2px 0 #263950;
 }
-.notify .content .social .gplus {
+.notify .content .social .buttons .gplus {
   background: #DD4B39;
+  box-shadow: 0 2px 0 #761f14;
+}
+.notify .content .setting .sliders {
+  vertical-align: middle;
+  display: inline-block;
+  width: 60%;
+  max-width: 380px;
+}
+.notify .content .setting .sliders h3 {
+  color: white;
+  font-weight: 300;
+  font-size: 22px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.notify .content .setting .sliders .slider {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  height: 4px;
+  position: relative;
+  margin-bottom: 42px;
+}
+.notify .content .setting .sliders .slider .ui-slider-range {
+  background: rgba(255, 255, 255, 0.9);
+  width: 10px;
+  height: 100%;
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2);
+}
+.notify .content .setting .sliders .slider .ui-slider-handle {
+  width: 16px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  outline: none;
+  margin-top: -10px;
+  margin-left: -6px;
+  border-radius: 15px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.notify .content .setting .sliders #red .ui-slider-range {
+  background: rgba(255, 0, 0, 0.6);
+}
+.notify .content .setting .sliders #green .ui-slider-range {
+  background: rgba(0, 255, 0, 0.6);
+}
+.notify .content .setting .sliders #blue .ui-slider-range {
+  background: rgba(0, 0, 255, 0.6);
+}
+.notify .content .info .text {
+  display: inline-block;
+  vertical-align: middle;
+  width: 80%;
+  color: white;
+  font-weight: 300;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.notify .content .info .text ul {
+  text-align: left;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.notify .content .info .text ul li {
+  position: relative;
+  padding: 12px 0px 12px 56px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  min-height: 32px;
+}
+.notify .content .info .text ul li a {
+  color: #f2672e;
+  text-decoration: none;
+}
+.notify .content .info .text ul li:lasst-child {
+  border: none;
+}
+.notify .content .info .text ul li:before {
+  position: absolute;
+  height: 48px;
+  width: 48px;
+  text-align: center;
+  display: inline-block;
+  font-size: 32px;
+  left: 0;
+}
+.notify .content .info .text .link {
+  text-decoration: none;
+  display: inline-block;
+  height: 64px;
+  line-height: 64px;
+  color: #f2672e;
+  padding: 0 16px;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+.notify .content .info .text .link:before {
+  vertical-align: middle;
+  height: 64px;
+  width: 48px;
+  text-align: center;
+  display: inline-block;
+  font-size: 36px;
+  left: 0;
+}
+.notify .content .info .text .link span {
+  vertical-align: middle;
+  font-size: 24px;
+}
+.notify .content .info .text .link:last-child {
+  border: none;
 }
 #share:checked ~ .notify,
 #info:checked ~ .notify,
@@ -248,4 +359,10 @@ html {
 #lang:checked ~ * .ru,
 #lang ~ * .en {
   display: block;
+}
+#lang ~ * .lang:before {
+  content: "En";
+}
+#lang:checked ~ * .lang:before {
+  content: "Ru";
 }
