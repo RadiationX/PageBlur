@@ -38,10 +38,10 @@
                         <label for="share" class="button"></label>
                     </div>
                     <div class="buttons">
-                        <a href="#" class="button tw entypo-twitter"><span>Twitter</span></a>
-                        <a href="#" class="button fb entypo-facebook"><span>Facebook</span></a>
-                        <a href="#" class="button gplus entypo-gplus"><span>Google+</span></a>
-                        <a href="#" class="button vk entypo-vkontakte"><span>Вконтакте</span></a>
+                        <a href="https://twitter.com/intent/tweet?url=http://radiationx.github.io/PageBlur/" class="button tw entypo-twitter"><span>Twitter</span></a>
+                        <a href="http://www.facebook.com/sharer/sharer.php?u=http://radiationx.github.io/PageBlur/" class="button fb entypo-facebook"><span>Facebook</span></a>
+                        <a href="https://plus.google.com/share?url=http://radiationx.github.io/PageBlur/" class="button gplus entypo-gplus"><span>Google+</span></a>
+                        <a href="http://vkontakte.ru/share.php?url=http://radiationx.github.io/PageBlur/" class="button vk entypo-vkontakte"><span>Вконтакте</span></a>
                     </div>
                 </div>
                 <div class="slide info">
@@ -124,6 +124,17 @@ With this library you can blur any element on the page, and use the image to cre
                 blurBgImage: 'image',
                 positionCorrect: true,
                 fastBlur: false,
+            });
+        };
+        window.onresize = function () {
+            PageBlur({
+                targetScreenId: 'screen',
+                blurRadius: 30,
+                blurBgWrap: 'blurbg',
+                blurBgImage: 'image',
+                positionCorrect: true,
+                fastBlur: false,
+                clean: true
             });
         };
     </script>

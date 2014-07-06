@@ -17,9 +17,6 @@ $().ready(function () {
                 fastBlur: false,
                 clean: true
             });
-        },
-        slide: function (event, ui) {
-            $("#blur .value").html('Blur radius: ' + ui.value + 'px');
         }
     });
     var red = 20;
