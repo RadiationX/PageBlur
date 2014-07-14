@@ -6,30 +6,6 @@ html {
   font-family: 'roboto', sans-serif;
   overflow: hidden;
 }
-#loading {
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #31302b;
-  font-size: 32px;
-  text-align: center;
-  transition: all 1s ease;
-  z-index: 100;
-  opacity: 1;
-  color: white;
-}
-#loading:after {
-  content: "";
-  display: inline-block;
-  vertical-align: middle;
-  height: 100%;
-}
-#loading span {
-  vertical-align: middle;
-  display: inline-block;
-}
 .box {
   display: inline-block;
   vertical-align: middle;
