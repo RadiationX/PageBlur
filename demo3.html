@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PageBlur.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/PageBlur.js"></script>
+</head>
+
+<body>
+    <pre><code data-language="html" class="rainbow"><span class="source js embedded"><span class="support tag script">&lt;</span><span class="entity tag script">script</span><span class="support tag script">&gt;</span>
+        <span class="entity function">window.onload</span> <span class="keyword operator">=</span> <span class="keyword">function</span>(){<span class="function call">PageBlur</span>({
+            opti: <span class="constant language">true</span>,
+            kOpti: <span class="constant numeric">25</span>,
+            radius: <span class="constant numeric">50</span>,
+            algorithm: <span class="string">'stack'</span>
+        },<span class="keyword">function</span>(){
+            <span class="function call">alert</span>(<span class="string">'Work!'</span>);    
+        })};
+<span class="support tag script">&lt;/</span><span class="entity tag script">script</span><span class="support tag script">&gt;</span></span></code></pre>
+    <div id="screen">
+        <div class="wrap">
+            <div class="content">
+                <div class="text">Work!</div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapBlur"></div>
+
+    <script>
+        window.onload = function () {
+            PageBlur({
+                opti: true,
+                kOpti: 1,
+                radius: 2,
+                algorithm: 'stack'
+            }, function () {
+                alert('Work!');
+            })
+        };
+    </script>
+</body>
+
+</html>
+
+
